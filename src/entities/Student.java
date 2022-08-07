@@ -1,7 +1,7 @@
 package entities;
 
 /**
- * Created byAdriano Pavaneli on 07/08/2022. 
+ * Created by Adriano Pavaneli on 07/08/2022. 
  * this class is resposible for keeping the
  * track of students fees, name, grade & fees
  * paid.
@@ -30,6 +30,8 @@ public class Student {
 		this.grade = grade;
 	}
 	
+	
+	
 	//Not going to alter student's name, student's id.
 	
 	/**
@@ -53,6 +55,53 @@ public class Student {
 	public void updateFeesPaid(int fees) {
 		feesPaid += fees;
 	}
+
+	/**
+	 * 
+	 * @return id of the student.
+	 */
+
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * 
+	 * @return name of the student.
+	 */
+
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * 
+	 * @return the grade of the student.
+	 */
+
+	public int getGrade() {
+		return grade;
+	}
+
+	/**
+	 * 
+	 * @return gees paid by the student.
+	 */
+
+	public int getFeesPaid() {
+		return feesPaid;
+	}
+
+	/**
+	 * 
+	 * @return the total fees of the student.
+	 */
+
+	public int getFeesTotal() {
+		return feesTotal;
+	}
+	
+	
 	
 
 }
