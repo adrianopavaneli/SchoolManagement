@@ -2,9 +2,9 @@ package entities;
 
 /**
  * Created by Adriano Pavaneli on 07/08/2022. 
- * this class is resposible for keeping the
- * track of students fees, name, grade & fees
- * paid.
+ * esta classe é responsável por manter o
+ * acompanhamento das taxas dos alunos, nome, nota e taxas
+ * pago.
  * 
  */
 public class Student {
@@ -15,28 +15,28 @@ public class Student {
 	private int feesTotal;
 	
 	/**
-	 * To create a new student by initializing.
-	 * @param id id ofr the student: unique.
-	 * @param name name of the student.
-	 * @param grade grade of the student.
+	 * Para criar um novo aluno inicializando.
+	 * @param id id do aluno: único.
+	 * @param name nome do estudante
+	 * @param grade nota do aluno.
 	 */
 	
 	
-	public Student(int id, String name, int grade) {		
-		this.feesPaid=0;
-		this.feesTotal=30000;
-		this.id = id;
-		this.name = name;
-		this.grade = grade;
+	public Student(int id, String name,int grade){
+        this.feesPaid=0;
+        this.feesTotal=30000;
+        this.id=id;
+        this.name=name;
+        this.grade=grade;
 	}
 	
 	
 	
-	//Not going to alter student's name, student's id.
+	//Não vou alterar o nome do aluno, a identificação do aluno.
 	
 	/**
-	 * Used to update the student's grade.
-	 * @param grade new grade of the student.
+	 * Usado para atualizar a nota do aluno.
+	 * @param grade nova nota do aluno.
 	 */
 	
 	public void setGrade(int grade) {
@@ -45,20 +45,21 @@ public class Student {
 	}
 	
 	/**
-	 * Keep adding the fees to feesPaid Field.
-	 * Add the fees to the fees paid.
-	 * The school is going receive the funds.
+	 * Continue adicionando as taxas ao campo feesPaid..
+	 * Adicione as taxas às taxas pagas.
+	 * A escola vai receber os fundos.
 	 * 
-	 * @param fees the fees that the student pays.
+	 * @param fees  as taxas que o aluno paga.
 	 */
 	
-	public void updateFeesPaid(int fees) {
+	public void payFees(int fees) {
 		feesPaid += fees;
+		School.updateTotalMoneyEarned(feesPaid);
 	}
 
 	/**
 	 * 
-	 * @return id of the student.
+	 * @return id do estudante.
 	 */
 
 	public int getId() {
@@ -67,7 +68,7 @@ public class Student {
 
 	/**
 	 * 
-	 * @return name of the student.
+	 * @return nome do estudante.
 	 */
 
 	public String getName() {
@@ -76,7 +77,7 @@ public class Student {
 
 	/**
 	 * 
-	 * @return the grade of the student.
+	 * @return nota do estudante.
 	 */
 
 	public int getGrade() {
@@ -85,7 +86,7 @@ public class Student {
 
 	/**
 	 * 
-	 * @return gees paid by the student.
+	 * @return dinheiro pago pelo aluno.
 	 */
 
 	public int getFeesPaid() {
@@ -94,11 +95,26 @@ public class Student {
 
 	/**
 	 * 
-	 * @return the total fees of the student.
+	 * @return taxas totais do estudante.
 	 */
 
 	public int getFeesTotal() {
 		return feesTotal;
+	}
+	/**
+	 * 
+	 * @return taxas restantes.
+	 */
+	public int getReimainingFees() {
+		return feesTotal - feesPaid;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Nome do Estudante: " + name + 
+				". Total de taxas paga até agora R$" + feesPaid;
 	}
 	
 	

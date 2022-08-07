@@ -3,38 +3,35 @@ package entities;
 import java.util.List;
 
 /**
- * Many teachers, many students.
- * Implements teachers and student
- * using an ArrayList.
+ * Muitos Professores, Muitos Estudantes.
+ * Implementa professores e alunos
+ * usando uma ArrayList.
  * Created by Adriano Pavaneli on 07/08/2022 
  */
 
-public class School {
-	
-	private List<Teacher> teachers;
-	private List<Student> students;
-	private int totalMoneyEarned;
-	private int totalMoneySpent;
+	public class School {
+
+	    private List<Teacher> teachers;
+	    private List<Student> students;
+	    private static int  totalMoneyEarned;
+	    private static int totalMoneySpent;
 	
 	/**
 	 * new school is created;
-	 * @param teachers list of teacheres in the school.
-	 * @param students list of students int the school.
+	 * @param teachers lista de professores da escola.
+	 * @param students lista de estudantes da escola.
 	 */
 	
-	public School(List<Teacher> teachers, List<Student> students) {
-		
-		this.teachers = teachers;
-		this.students = students;
-		totalMoneyEarned = 0;
-		totalMoneyEarned = 0;
-		
-		
-	}
+	    public School(List<Teacher> teachers, List<Student> students) {
+	        this.teachers = teachers;
+	        this.students = students;
+	        totalMoneyEarned=0;
+	        totalMoneySpent=0;
+	    }
 	
 	/**
 	 * 
-	 * @return the list of teachers int the school.
+	 * @return lista de professores da escola.
 	 */
 
 	public List<Teacher> getTeachers() {
@@ -42,8 +39,8 @@ public class School {
 	}
 
 	/**
-	 * Adds a teacher to the school.
-	 * @param teacher the teacher to be added.
+	 * Adiciona um professor na escola.
+	 * @param teacher professor a ser adicionado.
 	 */
 	public void addTeachers(Teacher teacher) {
 		teachers.add(teacher);
@@ -51,15 +48,15 @@ public class School {
 
 	/**
 	 * 
-	 * @return the list of students in the school.
+	 * @return lista de estudantes da escola.
 	 */
 	public List<Student> getStudents() {
 		return students;
 	}
 
 	/**
-	 * Adds a students to the school.
-	 * @param students the student to be added.
+	 * Adiciona um estudante na escola.
+	 * @param estudante a ser adicionado.
 	 */
 	public void addStudents(Student student) {
 		students.add(student);
@@ -67,38 +64,37 @@ public class School {
 	
 	/**
 	 * 
-	 * @return the total money earned by the school.
+	 * @return o total de dinheiro ganho pela escola.
 	 */
 
-	public int getTotalMoneyEarned() {
+	public double getTotalMoneyEarned() {
 		return totalMoneyEarned;
 	}
 
 	/**
-	 * Adds the total money earned by the school.
-	 * @param totalMoneyEarned money that is supposed to be added.
+	 * Adiciona o total de dinheiro ganho pela escola.
+	 * @param totalMoneyEarned dinheiro que deveria ser adicionado.
 	 */
-	public void updateTotalMoneyEarned(int MoneyEarned) {
-		totalMoneyEarned += MoneyEarned;
-	}
+	public static void updateTotalMoneyEarned(int MoneyEarned) {
+        totalMoneyEarned += MoneyEarned;
+    }
 	/**
 	 * 
-	 * @return the total money spent by the school.
+	 * @return o dinheiro total gasto pela escola.
 	 */
 
 	public int getTotalMoneySpent() {
-		return totalMoneySpent;
-	}
+        return totalMoneySpent;
+    }
 	/**
-	 * update the money that is spent by the school which
-	 * is the salary given by the school to its teachers. 
-	 * @param MoneySpent the money spent by school.
+	 * atualizar o dinheiro que é gasto pela escola que
+	 * é o salário dado pela escola aos seus professores. 
+	 * @param MoneySpent o dinheiro gasto pela escola.
 	 */
 
-	public void updateTotalMoneySpent(int MoneySpent) {
-		totalMoneyEarned = totalMoneyEarned-MoneySpent;
-		totalMoneySpent -= MoneySpent;
-	}
+	public static void updateTotalMoneySpent(int moneySpent) {
+        totalMoneyEarned-=moneySpent;
+     }
 	
 	
 	

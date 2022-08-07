@@ -3,34 +3,35 @@ package entities;
 /**
  * 
  * Created by Adriano Pavaneli on 07/08/2022 
- * This class is responsible for
- * keeping the track of teacher's name, id, salary.
+ * Esta classe é responsável por
+ * mantendo o controle do nome do professor, id, salário..
  */
 
 public class Teacher {
-	
-	private int id;
-	private String name;
-	private int salary;
+
+    private int id;
+    private String name;
+    private int salary;
+    private int salaryEarned;
 
 	/**
-	 * Creates a new Teacher objects.
+	 * Cria um novo objeto professor.
 	 * 
-	 * @param id     id for the teacher.
-	 * @param name   name of the teacher.
-	 * @param salary salary of the teacher.
+	 * @param id     id do professor.
+	 * @param name   nome do professor.
+	 * @param salary salario do professor.
 	 */
 
-	public Teacher(int id, String name, int salary) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.salary = salary;
-	}
+    public Teacher(int id, String name, int salary){
+        this.id=id;
+        this.name=name;
+        this.salary=salary;
+        this.salaryEarned=0;
+    }
 
 	/**
 	 * 
-	 * @return the id of the teacher.
+	 * @return o id do professor.
 	 */
 
 	public int getId() {
@@ -39,7 +40,7 @@ public class Teacher {
 
 	/**
 	 * 
-	 * @return name of the teacher.
+	 * @return nome do professor.
 	 */
 
 	public String getName() {
@@ -48,20 +49,41 @@ public class Teacher {
 
 	/**
 	 * 
-	 * @return the salary of the teacher.
+	 * @return o salario do professor.
 	 */
 
-	public double getSalary() {
+	public int getSalary() {
 		return salary;
 	}
 
 	/**
-	 * Set the salary.
+	 * defini  o salario.
 	 * @param salary
 	 */
-	public void setSalary(int salary) {
-		this.salary = salary;
+	public void setSalary(int salary){
+        this.salary=salary;
 	}
+	
+	/**
+	 * Adiciona o salario pago.
+     * Remove do total de dinheiro ganho pela escola.
+	 * @param d
+	 */
+	 public void receiveSalary(int d){
+	        salaryEarned+=d;
+	        School.updateTotalMoneySpent(d);
+	    }
+
+	
+
+	@Override
+	public String toString() {
+		return "Nome do Professor: " + name
+				+ ". Total de salario recebido até agora R$" + salaryEarned;
+	}
+	
+	
+	
 	
 	
 
